@@ -1,5 +1,5 @@
 /*
- * This code, implementing two faucet switches using ESP8266, was adapted using the following code and Arduino-HomeKit-ESP8266. 
+ * This code, implementing two faucet switches using ESP8266, was adapted using the following code and Arduino-HomeKit-ESP8266. Thanks Wang Bin!
  * https://github.com/Mixiaoxiao/Arduino-HomeKit-ESP8266/tree/master
  *
  * switch.ino
