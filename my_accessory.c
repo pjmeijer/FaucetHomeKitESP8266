@@ -6,11 +6,25 @@ void my_accessory_identify(homekit_value_t _value) {
 	printf("accessory identify\n");
 }
 
-// Switch (HAP section 8.38)
-// required: ACTIVE
-// optional: NAME
 
-// format: bool; HAP section 9.70; write the .setter function to get the switch-event sent from iOS Home APP.
+/**
+ TODO check https://github.com/apple/HomeKitADK/blob/master/HAP/HAPCharacteristicTypes.h
+            https://github.com/apple/HomeKitADK/blob/master/HAP/HAPServiceTypes.h
+
+ Defines that the accessory supports the control of a irrigation system.
+ 
+ Required Characteristics:
+ - ACTIVE
+ - PROGRAM_MODE
+ - IN_USE
+ 
+ Optional Characteristics:
+ - NAME
+ - REMAINING_DURATION
+ - STATUS_FAULT
+ */
+
+// format: bool; TODO check https://github.com/apple/HomeKitADK/blob/master/HAP/HAPCharacteristicTypes.h
 homekit_characteristic_t cha_faucet_active = HOMEKIT_CHARACTERISTIC_(ACTIVE, false);
 homekit_characteristic_t cha_faucet_active2 = HOMEKIT_CHARACTERISTIC_(ACTIVE, false);
 homekit_characteristic_t cha_faucet_program_mode = HOMEKIT_CHARACTERISTIC_(PROGRAM_MODE, false);
