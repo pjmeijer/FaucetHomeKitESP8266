@@ -144,11 +144,11 @@ void my_homekit_setup() {
 	//homekit_characteristic_notify(&cha_faucet_active, cha_faucet_active.value);
 }
 
-wifi_status_check checkWifi() {
-  static unsigned long lastConnect=-20000ul; 
+bool checkWifi() {
+  static unsigned long lastConnect=-20000; 
 
   // checking for WIFI connection
-  if ((WiFi.status() != WL_CONNECTED) && (millis() – lastConnect >= 20000ul)) {
+  if ((WiFi.status() != WL_CONNECTED) && (millis() - lastConnect >= 20000)) {
     Serial.println("Damned. Got disconnected. Reconnecting to WIFI network");
     WiFi.disconnect();
     WiFi.reconnect();
@@ -156,11 +156,10 @@ wifi_status_check checkWifi() {
   }
   return WiFi.status();
 }
-
 void my_homekit_loop() {
 	arduino_homekit_loop();
 	const uint32_t t = millis();
-	wifi_status_check()
+	checkWifi();
   
 	if (t > next_heap_millis) {
 		// show heap info every 2 seconds (5 seconds was too long, not updating correctly)
